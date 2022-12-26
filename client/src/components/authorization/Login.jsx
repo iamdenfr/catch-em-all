@@ -14,7 +14,7 @@ const Login = () => {
             <div className="authorization__header">Авторизація</div>
             <Input value={email} setValue={setEmail} type="text" placeholder="Уведіть email..."/>
             <Input value={password} setValue={setPassword} type="password" placeholder="Уведіть пароль..."/>
-            <button className="authorization__btn" type='button' onClick={() => dispatch(login(email, password))}>Увійти</button>
+            <button className="authorization__btn" onClick={() => dispatch(login(email, password))}>Увійти</button>
         </div>
     );
 };
