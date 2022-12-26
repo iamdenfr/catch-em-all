@@ -1,0 +1,5 @@
+{
+    "serverPort": 5000,
+    "databaseUrl": "mongodb+srv://funfil:22102002@cloud.mxftbnn.mongodb.net/?retryWrites=true&w=majority",
+    "secretKey": "mern-sekret-key"
+}
