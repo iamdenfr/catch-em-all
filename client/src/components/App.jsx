@@ -21,10 +21,16 @@ function App() {
             <div className='app'>
                 <Navbar/>
                 <div className="wrap">
-                    {!isAuth &&
+                    {!isAuth ?
                     <Routes>
                         <Route path="/registration" element={<Registration/>}/>
                         <Route path="/login" element={<Login/>}/>
+                        <Redirect to="/login"/>
+                    </Routes>
+                    :
+                    <Routes>
+                        <Route path="/main" />
+                        <Redirect to="/main"/>
                     </Routes>
                     }
                 </div>
