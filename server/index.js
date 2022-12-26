@@ -4,7 +4,6 @@ const config = require("config")
 const authRouter = require("./routes/auth.routes")
 const app = express()
 const PORT = config.get('serverPort')
-//const corsMiddleware = require('./middleware/cors.middleware')
 const cors = require('cors')
 
 const corsOption = {
@@ -15,8 +14,6 @@ const corsOption = {
 app.use(cors(corsOption))
 app.use(express.json())
 app.use("/api/auth", authRouter)
-
-//app.use(corsMiddleware)
 
 const start = async () => {
     try {
