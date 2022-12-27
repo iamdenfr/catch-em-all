@@ -5,11 +5,8 @@ const Store = new Schema({
     users_ids: [
         {type: Schema.Types.ObjectId, ref: "User"}
     ],
-    products_ids: [
+    products_ids: [    
         {type: Schema.Types.ObjectId, ref: "Product"}
-    ],
-    products_amount: [
-        {type: Number}
     ],
     num: {type: Number}
 })
