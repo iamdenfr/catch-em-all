@@ -1,12 +1,15 @@
 const{Schema, model, objectId} = require("mongoose")
 
-const Store = new Schema({ 
+const Store = new Schema({
+    store_address: {type: String, required: true}, 
     users_ids: [
         {type: Schema.Types.ObjectId, ref: "User"}
     ],
-    store_address: {type: String, required: true},
     products_ids: [
         {type: Schema.Types.ObjectId, ref: "Product"}
+    ],
+    products_amount: [
+        {type: Number}
     ],
     num: {type: Number}
 })

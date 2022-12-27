@@ -1,6 +1,7 @@
 const Router = require("express")
 const config = require("config")
 const User = require ("../models/User")
+const Store = require ("../models/Store")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = new Router()
@@ -30,6 +31,9 @@ router.post('/registration',
         
         const user = new User({email, password: hashPassword, num: 1})
         await user.save()
+        const store = Store.findOne({num: 1})
+        await store.updateOne({num: 1}, {$push: {users_ids: user._id}})
+
         return res.json({message: "User was created"})
         
     } catch (e) {

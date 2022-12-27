@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Navbar from "./navbar/Navbar";
 import './app.css'
-import {BrowserRouter, Route, Routes, redirect} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Registration from "./authorization/Registration";
 import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
@@ -28,7 +28,7 @@ function App() {
                     </Routes>
                     :
                     <Routes>
-                        <Route path="/main" />
+                        <Route path="/products" />
                     </Routes>
                     }
                 </div>
