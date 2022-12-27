@@ -3,7 +3,7 @@ import './authorization.css'
 import Input from "../../utils/input/Input";
 import {useDispatch} from "react-redux";
 import {login} from "../../actions/user";
-import {NavLink} from "react-router-dom";
+//import {NavLink} from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("")
