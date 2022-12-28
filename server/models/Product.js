@@ -5,9 +5,7 @@ const Product = new Schema({
     title: {type: String, required: true},
     price: {type: Number, required: true},
     description: {type: String},
-    amount: [
-        {type: Number, default: 0}
-    ],
+    amount: {type: Number, default: 0}
 })
 
 module.exports = model("Product", Product)

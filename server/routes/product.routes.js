@@ -37,6 +37,12 @@ router.post('/products',
 async (req, res) => {
     try {
         const {code, title, price, description, amount} = req.body
+
+        const candidate = await Product.findOne({code})
+        if (candidate){
+            res.status(400).json({message: "This product already exists. Try another code or simply update this product"})
+        }
+
         const product = new Product({code, title, price, description, amount})
         await product.save()
         // const store = Store.findOne({num:1})

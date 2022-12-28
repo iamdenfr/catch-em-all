@@ -56,7 +56,7 @@ export const logout = () => {
 
 export const createProduct = async (code, title, price, description, amount) => {
     try {
-        const response = await axios.post(`http://localhost:5000/api/product`, {
+        const response = await axios.post(`http://localhost:5000/api/products`, {
             code,
             title,
             price,
@@ -71,7 +71,7 @@ export const createProduct = async (code, title, price, description, amount) => 
 
 export const getProducts = async () => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/product`)
+        const response = await axios.get(`http://localhost:5000/api/products`)
         return response.data
     } catch (e) {
         alert(e.message)
@@ -89,6 +89,13 @@ export const getProduct = async (code) => {
 
 export const deleteProduct = async (code) => {
     try {
+        
+        const candidate = await getProduct(code)
+        if (!candidate) {
+            alert('Product not found')
+            return
+        }
+
         const response = await axios.delete(`http://localhost:5000/api/product/${code}`,
             {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
         alert(response.data.message)

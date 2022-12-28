@@ -6,6 +6,7 @@ import Registration from "./authorization/Registration";
 import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
+import AddProduct from "./products/addProduct";
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -29,7 +30,7 @@ function App() {
                     </Routes>
                     :
                     <Routes>
-                        <Route path="/products" />
+                        <Route path="/products" element={<AddProduct/>}/>
                     </Routes>
                     }
                 </div>
