@@ -42,3 +42,72 @@ export const auth =  () => {
         }
     }
 }
+
+export const logout = () => {
+    return async dispatch => {
+        try {
+            localStorage.removeItem('token')
+            dispatch(setUser({}))
+        } catch (e) {
+            alert(e.message)
+        }
+    }
+}
+
+export const createProduct = async (code, title, price, description, amount) => {
+    try {
+        const response = await axios.post(`http://localhost:5000/api/product`, {
+            code,
+            title,
+            price,
+            description,
+            amount
+        }, {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+        alert(response.data.message)
+    } catch (e) {
+        alert(e.message)
+    }
+}
+
+export const getProducts = async () => {
+    try {
+        const response = await axios.get(`http://localhost:5000/api/product`)
+        return response.data
+    } catch (e) {
+        alert(e.message)
+    }
+}
+
+export const getProduct = async (code) => {
+    try {
+        const response = await axios.get(`http://localhost:5000/api/product/${code}`)
+        return response.data
+    } catch (e) {
+        alert(e.message)
+    }
+}
+
+export const deleteProduct = async (code) => {
+    try {
+        const response = await axios.delete(`http://localhost:5000/api/product/${code}`,
+            {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+        alert(response.data.message)
+    } catch (e) {
+        alert(e.message)
+    }
+}
+
+export const updateProduct = async (code, title, price, description, amount) => {
+    try {
+        const response = await axios.put(`http://localhost:5000/api/product/${code}`, {
+            title,
+            price,
+            description,
+            amount
+        }, {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+        alert(response.data.message)
+    } catch (e) {
+        alert(e.message)
+    }
+}
+
