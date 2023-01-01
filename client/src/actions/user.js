@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {setUser} from "../reducers/userReducer";
+import {showProducts} from "../reducers/productReducer";
 
 export const registration = async (email, password) => {
     try {
@@ -69,12 +70,15 @@ export const createProduct = async (code, title, price, description, amount) => 
     }
 }
 
-export const getProducts = async () => {
-    try {
-        const response = await axios.get(`http://localhost:5000/api/products`)
-        return response.data
-    } catch (e) {
-        alert(e.message)
+export const getProducts = () => {
+    return async dispatch => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/products`)
+            dispatch(showProducts(response.data))
+            return response.data
+        } catch (e) {
+            alert(e.message)
+        }
     }
 }
 

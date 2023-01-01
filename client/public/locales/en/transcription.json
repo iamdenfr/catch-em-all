@@ -1,0 +1,72 @@
+{
+    "navbar":
+    {
+    "title": "Catch`em all",
+    "login": "Login",
+    "register": "Register",
+    "exit": "Leave account"
+    },
+
+    "login":
+    {
+        "title": "Login",
+        "email": "Enter your email",
+        "password": "Enter your password",
+        "enter": "Enter"
+    },
+
+    "register":
+    {
+        "title": "Register",
+        "email": "Enter your email",
+        "password": "Enter your password"
+    },
+
+    "addproduct":
+    {
+        "title": "Add product",
+        "code": "Enter product code",
+        "name": "Enter product name",
+        "price": "Enter product price",
+        "description": "Enter product description",
+        "add": "Add"
+    },
+
+    "updateproduct":
+    {
+        "title": "Update product info",
+        "code": "Enter new product code",
+        "name": "Enter new product name",
+        "price": "Enter new product price",
+        "description": "Enter new product description",
+        "update": "Update"
+    },
+
+    "showproduct":
+    {
+        "title": "Show products"
+    },
+
+    "check":
+    {
+        "req": "Incorrect request",
+        "email": "Email entered incorrectly",
+        "reg_password": "Password must be longer than 8 and shorter than 20 symbols",
+        "wrong_password": "Wrong password",
+        "reg_success": "User was created successfully",
+        "user_exist_1": "User with email ",
+        "user_exist_2": " already exists. try another email",
+        "user_not_exist": "User with this email does not exist",
+        "product_exist": "Product with this code already exists. Try another code or simply update the product",
+        "product_not_exist": "This product doesn't exist. Try another code or simply create a new product",
+        "code_empty": "Product code cannot be empty",
+        "name_empty": "Product name cannot be empty",
+        "price_empty": "Product price cannot be empty",
+        "price_not_number": "Product price must be a number",
+        "description_empty": "Product description cannot be empty",
+        "server_error": "Server error",
+        "create_product": "Product was created successfully",
+        "update_product": "Product was updated successfully",
+        "delete_product": "Product was deleted successfully"
+    }
+}

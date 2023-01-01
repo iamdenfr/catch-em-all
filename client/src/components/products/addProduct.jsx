@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import Input from "../../utils/input/Input";
 import {createProduct} from "../../actions/user";
 import './product.css'
-import {useDispatch} from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 const AddProduct = () => {
+    const { t, i18n } = useTranslation();
+
     const [code, setCode] = useState("")
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
@@ -12,13 +14,15 @@ const AddProduct = () => {
     const [amount, setAmount] = useState("")
     return (
         <div className="authorization">
-            <div className="authorization__header">Додати товар</div>
-            <Input value={code} setValue={setCode} type="text" placeholder="Уведіть код товару..."/>
-            <Input value={title} setValue={setTitle} type="text" placeholder="Уведіть назву товару..."/>
-            <Input value={price} setValue={setPrice} type="text" placeholder="Уведіть ціну товару..."/>
-            <Input value={description} setValue={setDescription} type="text" placeholder="Уведіть опис товару..."/>
-            <Input value={amount} setValue={setAmount} type="text" placeholder="Уведіть кількість товару..."/>
-            <button className="authorization__btn" onClick={() => createProduct(code, title, price, description, amount)}>Додати товар</button>
+            <div className="authorization__header">{t('addproduct.title')}</div>
+            <Input value={code} setValue={setCode} type="text" placeholder={t('addproduct.code')}/>
+            <Input value={title} setValue={setTitle} type="text" placeholder={t('addproduct.name')}/>
+            <Input value={price} setValue={setPrice} type="text" placeholder={t('addproduct.price')}/>
+            <Input value={description} setValue={setDescription} type="text" placeholder={t('addproduct.description')}/>
+            <Input value={amount} setValue={setAmount} type="text" placeholder={t('addproduct.amount')}/>
+            <button className="authorization__btn" onClick={() => 
+                createProduct(code, title, price, description, amount)
+                }>{t('addproduct.add')}</button>
         </div>
     );
 }

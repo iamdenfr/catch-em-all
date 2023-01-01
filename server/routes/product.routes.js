@@ -45,12 +45,10 @@ async (req, res) => {
 
         const product = new Product({code, title, price, description, amount})
         await product.save()
-        // const store = Store.findOne({num:1})
-        // await store.updateOne({num:1},{$push: {products_ids: product._id}})
-        // .updateOne({num:1},{$push: {products_amount: 0}})
         res.json({message: "Product was created"})
     } catch (e) {
         console.log(e)
+        res.send({message: "Not enough data or Server error"})
     }
 })
 
@@ -78,6 +76,7 @@ async (req, res) => {
         res.json({message: "Product was updated"})
     } catch (e) {
         console.log(e)
+        res.send({message: "Not enough data or Server error"})
     }
 })
 
@@ -87,10 +86,6 @@ router.delete('/products/:code', async (req, res) => {
         if (!product){
             res.status(404).json({message: "This product doesn't exist. Try another code or simply create a new product"})
         }
-
-        // const store = Store.findOne({num:1})
-        // await store.updateOne({num:1},{$pull: {products_ids: product._id}})
-
         await Product.findOneAndDelete({code: req.params.code})
         res.json({message: "Product was deleted"})
     } catch (e) {

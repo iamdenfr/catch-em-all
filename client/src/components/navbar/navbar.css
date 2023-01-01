@@ -9,7 +9,19 @@
   margin-left: 10px;
   font-size: 24px;
   font-weight: 700;
+  align-items: center;
 }
+
+.navbar__language {
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  align-items: center;
+  align-self: center;
+  vertical-align: auto;
+}
+
 .navbar__login {
   margin-left: auto;
   margin-right: 20px;
