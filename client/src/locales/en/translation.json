@@ -23,6 +23,13 @@
         "register": "Register"
     },
 
+    "product":
+    {
+        "new": "New product",
+        "update": "Update product",
+        "show": "Show products"
+    },
+
     "addproduct":
     {
         "title": "Add product",
@@ -31,7 +38,8 @@
         "price": "Enter product price",
         "description": "Enter product description",
         "amount": "Enter product amount",
-        "add": "Add product"
+        "add": "Add product",
+        "back": "Back to product info"
     },
 
     "updateproduct":
@@ -42,7 +50,8 @@
         "price": "Enter new product price",
         "description": "Enter new product description",
         "amount": "Enter new product amount",
-        "update": "Update product"
+        "update": "Update product",
+        "back": "Back to product info"
     },
 
     "showproduct":

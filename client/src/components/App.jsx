@@ -7,8 +7,9 @@ import Login from "./authorization/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../actions/user";
 import AddProduct from "./products/addProduct";
-import ShowProducts from './products/showProducts';
+import MainMenu from './products/mainMenu';
 import UpdateProduct from './products/updateProduct';
+import ShowProducts from './products/showProducts';
 
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -32,10 +33,11 @@ function App() {
                     </Routes>
                     :
                     <Routes>
+                        <Route path="/" element={<MainMenu/>}/>
                         <Route path="/products" element={<ShowProducts/>}/>
                         <Route path="/products/add" element={<AddProduct/>}/>
                         <Route path="/products/:id" element={<UpdateProduct/>}/>
-                        <Route path="/login" element={<Navigate to ="/products"/>}/>
+                        <Route path="/login" element={<Navigate to ="/"/>}/>
                     </Routes>
                     }
                 </div>

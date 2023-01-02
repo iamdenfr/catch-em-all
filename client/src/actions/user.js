@@ -70,21 +70,19 @@ export const createProduct = async (code, title, price, description, amount) => 
     }
 }
 
-export const getProducts = () => {
-    return async dispatch => {
-        try {
-            const response = await axios.get(`http://localhost:5000/api/products`)
-            dispatch(showProducts(response.data))
+export const getProducts = async() => {
+    try {
+        const response = await axios.get(`http://localhost:5000/api/products`)
             return response.data
         } catch (e) {
             alert(e.message)
-        }
     }
 }
 
+
 export const getProduct = async (code) => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/product/${code}`)
+        const response = await axios.get(`http://localhost:5000/api/products/${code}`)
         return response.data
     } catch (e) {
         alert(e.message)
@@ -100,7 +98,7 @@ export const deleteProduct = async (code) => {
             return
         }
 
-        const response = await axios.delete(`http://localhost:5000/api/product/${code}`,
+        const response = await axios.delete(`http://localhost:5000/api/products/${code}`,
             {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
         alert(response.data.message)
     } catch (e) {
@@ -110,7 +108,7 @@ export const deleteProduct = async (code) => {
 
 export const updateProduct = async (code, title, price, description, amount) => {
     try {
-        const response = await axios.put(`http://localhost:5000/api/product/${code}`, {
+        const response = await axios.put(`http://localhost:5000/api/products/${code}`, {
             title,
             price,
             description,

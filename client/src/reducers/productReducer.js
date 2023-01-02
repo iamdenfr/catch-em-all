@@ -2,7 +2,11 @@ const PRODUCTS = "PRODUCTS";
 const PRODUCT = "PRODUCT";
 
 const initialState = {
-    products: []
+    products: [
+        {
+
+        }
+    ]
 };
 
 export default function (state = initialState, action) {
