@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getProducts } from '../../actions/user';
 import { Link, NavLink } from 'react-router-dom';
 import './product.css'
+import { useTranslation } from 'react-i18next';
 
 const ShowProducts = () => {
+    const { t, i18n } = useTranslation();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -14,8 +16,8 @@ const ShowProducts = () => {
     return (
         <div>
             <div className='view__header'>
-                <div><NavLink to="/products/add">Add new product</NavLink></div>
-                <div className='view__header__btn'><NavLink to="/">Back to main menu</NavLink></div>
+                <div><NavLink to="/products/add">{t('product.new')}</NavLink></div>
+                <div className='view__header__btn'><NavLink to="/">{t('product.back')}</NavLink></div>
             </div>
             <div className='view'>
                 {products.map(product => (
@@ -24,9 +26,9 @@ const ShowProducts = () => {
                             pathname: `/products/${product.code}`,
                             id: product.code}}>
                         <h3>{product.title}</h3></NavLink>
-                        <p>Опис: {product.description}</p>
-                        <p>Ціна: {product.price} грн.</p>
-                        <p>Кількість на складі: {product.amount}</p>
+                        <p>{t('product.description')}{product.description}</p>
+                        <p>{t('product.price')}{product.price}{t('product.uah')}</p>
+                        <p>{t('product.amount')}{product.amount}</p>
                     </div>
                 ))}
             </div>

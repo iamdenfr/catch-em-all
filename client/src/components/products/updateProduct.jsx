@@ -27,13 +27,16 @@ const UpdateProduct = () => {
 
     return (
         <div className="authorization">
-            <div className="authorization__header">Редагувати товар</div>
-            <Input value={title} setValue={setTitle} type="text" placeholder="Уведіть нову назву товару..."/>
-            <Input value={price} setValue={setPrice} type="text" placeholder="Уведіть нову ціну товару..."/>
-            <Input value={description} setValue={setDescription} type="text" placeholder="Уведіть новий опис товару..."/>
-            <Input value={amount} setValue={setAmount} type="text" placeholder="Уведіть нову кількість товару..."/>
-            <button className="authorization__btn" onClick={() => updateProduct(code, title, price, description, amount)}>Редагувати товар</button>
-            <button className="authorization__btn" onClick={() => deleteProduct(code).then(()=>navigate(-1))}>Видалити товар</button>
+            <div className="authorization__header">{t('updateproduct.title')}</div>
+            <Input value={title} setValue={setTitle} type="text" placeholder={t('updateproduct.name')}/>
+            <Input value={price} setValue={setPrice} type="text" placeholder={t('updateproduct.price')}/>
+            <Input value={description} setValue={setDescription} type="text" placeholder={t('updateproduct.description')}/>
+            <Input value={amount} setValue={setAmount} type="text" placeholder={t('updateproduct.amount')}/>
+            <button className="authorization__btn" onClick={() => 
+                updateProduct(code, title, price, description, amount)}>{t('updateproduct.update')}</button>
+            <button className="authorization__btn" onClick={() => 
+                deleteProduct(code).then(()=>navigate(-1))}>{t('updateproduct.delete')}</button>
+            <button className="authorization__btn" onClick={()=>navigate(-1)}>{t('updateproduct.back')}</button>
         </div>
     );
 }

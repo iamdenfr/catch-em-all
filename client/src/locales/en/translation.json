@@ -27,7 +27,12 @@
     {
         "new": "New product",
         "update": "Update product",
-        "show": "Show products"
+        "show": "Show products",
+        "back": "Back to main page",
+        "description": "Description: ",
+        "price": "Price: ",
+        "uah": " UAH",
+        "amount": "Amount: "
     },
 
     "addproduct":
@@ -51,7 +56,8 @@
         "description": "Enter new product description",
         "amount": "Enter new product amount",
         "update": "Update product",
-        "back": "Back to product info"
+        "back": "Back to product info",
+        "delete": "Delete product"
     },
 
     "showproduct":
