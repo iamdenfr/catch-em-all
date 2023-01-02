@@ -91,7 +91,6 @@ export const getProduct = async (code) => {
 
 export const deleteProduct = async (code) => {
     try {
-        
         const candidate = await getProduct(code)
         if (!candidate) {
             alert('Product not found')
