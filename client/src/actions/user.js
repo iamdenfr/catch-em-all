@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {setUser} from "../reducers/userReducer";
+import {showProducts} from "../reducers/productReducer";
 
 export const registration = async (email, password) => {
     try {
@@ -69,18 +70,19 @@ export const createProduct = async (code, title, price, description, amount) => 
     }
 }
 
-export const getProducts = async () => {
+export const getProducts = async() => {
     try {
         const response = await axios.get(`http://localhost:5000/api/products`)
-        return response.data
-    } catch (e) {
-        alert(e.message)
+            return response.data
+        } catch (e) {
+            alert(e.message)
     }
 }
 
+
 export const getProduct = async (code) => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/product/${code}`)
+        const response = await axios.get(`http://localhost:5000/api/products/${code}`)
         return response.data
     } catch (e) {
         alert(e.message)
@@ -89,14 +91,13 @@ export const getProduct = async (code) => {
 
 export const deleteProduct = async (code) => {
     try {
-        
         const candidate = await getProduct(code)
         if (!candidate) {
             alert('Product not found')
             return
         }
 
-        const response = await axios.delete(`http://localhost:5000/api/product/${code}`,
+        const response = await axios.delete(`http://localhost:5000/api/products/${code}`,
             {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
         alert(response.data.message)
     } catch (e) {
@@ -106,7 +107,7 @@ export const deleteProduct = async (code) => {
 
 export const updateProduct = async (code, title, price, description, amount) => {
     try {
-        const response = await axios.put(`http://localhost:5000/api/product/${code}`, {
+        const response = await axios.put(`http://localhost:5000/api/products/${code}`, {
             title,
             price,
             description,
